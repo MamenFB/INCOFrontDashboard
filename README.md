@@ -77,8 +77,8 @@ This project is licensed under the terms of the MIT license. This means that you
 
 Created by:
 -
-- 🌀 [Erwin Massa](https://github.com/Ermapla)
-- 🌀 [Ramesh](https://github)
-- 🌀 [Miguel](https://github)
-- 🌀 [Mamen](https://github)
+- 🔗 [Erwin Massa](https://github.com/Ermapla)
+- 🔗 [Ramesh](https://github)
+- 🔗 [Miguel](https://github)
+- 🔗 [Mamen](https://github)
 
