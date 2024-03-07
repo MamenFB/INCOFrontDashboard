@@ -4,8 +4,8 @@
 
 .<br><br>
 
-## 🥐🍪🍩 Final Result
-![Pure Treats Landing Page](https://media.discordapp.net/attachments/1209827846089084963/1210360870580785174/image.png?ex=65ea4766&is=65d7d266&hm=c74e66d1f330d743845277bf6b6efe8a0c83f12e4e4dc998f3e91c3b9ba8571c&=&format=webp&quality=lossless&width=1232&height=602)
+##  Final Result
+![Pure Treats Landing Page]
 <br><br><br>
 
 
@@ -28,7 +28,7 @@
 <br><br>
 
 
-## 🚀 Installation Steps. Get Started:
+## 🚀🚀 Installation Steps. Get Started:
 
 To run Pure Treats locally:
 
@@ -77,5 +77,8 @@ This project is licensed under the terms of the MIT license. This means that you
 
 Created by:
 -
-- [Erwin Massa](https://github.com/Ermapla)
+- 🌀 [Erwin Massa](https://github.com/Ermapla)
+- 🌀 [Ramesh](https://github)
+- 🌀 [Miguel](https://github)
+- 🌀 [Mamen](https://github)
 
