@@ -76,9 +76,8 @@ This project is licensed under the terms of the MIT license. This means that you
 ## 👩‍💻 Authors
 
 Created by:
--
-- 🔗 [Erwin Massa](https://github.com/Ermapla)
 - 🔗 [Ramesh](https://github)
+- 🔗 [Erwin Massa](https://github.com/Ermapla)
 - 🔗 [Miguel](https://github)
 - 🔗 [Mamen](https://github)
 
