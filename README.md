@@ -76,8 +76,9 @@ This project is licensed under the terms of the MIT license. This means that you
 ## 👩‍💻 Authors
 
 Created by:
-- 🔗 [Ramesh](https://github)
+- 🔗 [Ramesh](https://github.com/RameshNada)
 - 🔗 [Erwin Massa](https://github.com/Ermapla)
-- 🔗 [Miguel](https://github)
-- 🔗 [Mamen](https://github)
+- 🔗 [Miguel](https://github.com/MiguelMeixoeiro)
+- 🔗 [Mamen](https://github.com/MamenFB)
+
 
