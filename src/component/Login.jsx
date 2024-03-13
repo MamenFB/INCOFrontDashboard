@@ -51,7 +51,7 @@ const Login = () => {
       <div className="p-3 rounded w-25 border loginForm">
         <div className="text-warning">{error && error}</div>
         <h2>Login Page</h2>
-        <form onSubmit={handleSubmit}>
+        <form  onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="email">
               <strong>Email:</strong>
