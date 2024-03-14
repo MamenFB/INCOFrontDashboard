@@ -8,20 +8,20 @@ const AddEmployee = () => {
     name: "",
     email: "",
     password: "",
-    salary: "",
+    age: "",
     address: "",
-    category_id: "",
+    course_id: "",
     image: "",
   });
-  const [category, setCategory] = useState([]);
+  const [course, setcourse] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/auth/category")
+      .get("http://localhost:3000/auth/course")
       .then((result) => {
         if (result.data.Status) {
-          setCategory(result.data.Result);
+          setcourse(result.data.Result);
         } else {
           alert(result.data.Error);
         }
@@ -36,9 +36,9 @@ const AddEmployee = () => {
     formData.append("email", employee.email);
     formData.append("password", employee.password);
     formData.append("address", employee.address);
-    formData.append("salary", employee.salary);
+    formData.append("age", employee.age);
     formData.append("image", employee.image);
-    formData.append("category_id", employee.category_id);
+    formData.append("course_id", employee.course_id);
 
     axios
       .post("http://localhost:3000/auth/add_employee", formData)
@@ -99,17 +99,17 @@ const AddEmployee = () => {
               }
             />
 
-            <label htmlFor="inputSalary" className="form-label">
-              Salary
+            <label htmlFor="inputage" className="form-label">
+              age
             </label>
             <input
               type="text"
               className="form-control rounded-0"
-              id="inputSalary"
-              placeholder="Enter Salary"
+              id="inputage"
+              placeholder="Enter age"
               autoComplete="off"
               onChange={(e) =>
-                setEmployee({ ...employee, salary: e.target.value })
+                setEmployee({ ...employee, age: e.target.value })
               }
             />
 
@@ -127,18 +127,18 @@ const AddEmployee = () => {
               }
             />
 
-            <label htmlFor="category" className="form-label">
-              Category
+            <label htmlFor="course" className="form-label">
+              course
             </label>
             <select
-              name="category"
-              id="category"
+              name="course"
+              id="course"
               className="form-select"
               onChange={(e) =>
-                setEmployee({ ...employee, category_id: e.target.value })
+                setEmployee({ ...employee, course_id: e.target.value })
               }
             >
-              {category.map((c) => {
+              {course.map((c) => {
                 return (
                   <option key={c.id} value={c.id}>
                     {c.name}

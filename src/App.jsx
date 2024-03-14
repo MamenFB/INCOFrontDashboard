@@ -6,9 +6,9 @@ import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import Dashboard from "./component/Dashboard";
 import Home from "./component/Home";
 import Employee from "./component/Employee";
-import Category from "./component/Category";
+import Course from "./component/Course";
 import Profile from "./component/Profile";
-import AddCategory from "./component/AddCategory";
+import AddCourse from "./component/AddCourse";
 import AddEmployee from "./component/AddEmployee";
 import EditEmployee from "./component/EditEmployee";
 import { ToastContainer } from "react-toastify";
@@ -19,7 +19,6 @@ import EmployeeDetail from "./component/EmployeeDetail";
 import { useEffect } from "react";
 
 function App() {
-  
   return (
     <BrowserRouter>
       <ToastContainer theme="dark" position="top-center" />
@@ -31,12 +30,9 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="" element={<Home />}></Route>
           <Route path="/dashboard/employee" element={<Employee />}></Route>
-          <Route path="/dashboard/category" element={<Category />}></Route>
+          <Route path="/dashboard/Course" element={<Course />}></Route>
           <Route path="/dashboard/profile" element={<Profile />}></Route>
-          <Route
-            path="/dashboard/add_category"
-            element={<AddCategory />}
-          ></Route>
+          <Route path="/dashboard/AddCourse" element={<AddCourse />}></Route>
           <Route
             path="/dashboard/add_employee"
             element={<AddEmployee />}

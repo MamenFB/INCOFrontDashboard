@@ -40,10 +40,10 @@ const Employee = () => {
   return (
     <div className="px-5 mt-3">
       <div className="d-flex justify-content-center">
-        <h3>Employee List</h3>
+        <h3> User List</h3>
       </div>
       <Link to="/dashboard/add_employee" className="btn btn-success">
-        Add Employee
+        Add User
       </Link>
       <div className="mt-3">
         <table className="table ">
@@ -53,7 +53,7 @@ const Employee = () => {
               <th>Image</th>
               <th>Email</th>
               <th>Address</th>
-              <th>Salary</th>
+              <th>age</th>
               <th>Department</th>
               <th>Action</th>
             </tr>
@@ -67,13 +67,13 @@ const Employee = () => {
                     src={`http://localhost:3000/Images/` + e.image}
                     className="employee_image"
                     alt=""
-                    srcset=""
+                    srcet=""
                   />
                 </td>
                 <td>{e.email}</td>
                 <td>{e.address}</td>
-                <td>{e.salary}</td>
-                <td>{e.category}</td>
+                <td>{e.age}</td>
+                <td>{e.course}</td>
                 <td>
                   <Link
                     to={"/dashboard/edit_employee/" + e.id}

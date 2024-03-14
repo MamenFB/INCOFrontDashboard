@@ -22,9 +22,7 @@ const Dashboard = () => {
               to="/dashboard"
               className="d-flex align-items-center pb-3 mb-md-1 mt-md-3 me-md-auto text-white text-decoration-none"
             >
-              <span className="fs-5 fw-bolder d-done d-sm-inline">
-                A service
-              </span>
+              <span className="fs-5 fw-bolder d-done d-sm-inline">INCO</span>
             </Link>
             <ul
               className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
@@ -46,17 +44,17 @@ const Dashboard = () => {
                 >
                   <i className="fs-4 bi-people ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">
-                    Manage Employees
+                    Manage Students/Teachers
                   </span>
                 </Link>
               </li>
               <li className="w-100">
                 <Link
-                  to="/dashboard/category"
+                  to="/dashboard/course"
                   className="nav-link px-0 align-middle text-white"
                 >
                   <i className="fs-4 bi-columns ms-2"></i>
-                  <span className="ms-2 d-none d-sm-inline">Category</span>
+                  <span className="ms-2 d-none d-sm-inline">course</span>
                 </Link>
               </li>
               <li className="w-100">
@@ -79,7 +77,7 @@ const Dashboard = () => {
         </div>
         <div className="col p-0 m-0">
           <div className="p-2 d-flex justify-content-center shadow">
-            <h4>Employee Management System</h4>
+            <h4>INCO Dashboard</h4>
           </div>
           <Outlet />
         </div>

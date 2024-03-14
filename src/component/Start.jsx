@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "./style.css";
 
 const Start = () => {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ const Start = () => {
               navigate("/employee_login");
             }}
           >
-            Employee
+            Student
           </button>
           <button
             type="button"
@@ -41,7 +42,7 @@ const Start = () => {
               navigate("/adminlogin");
             }}
           >
-            Admin
+            Teacher
           </button>
         </div>
       </div>

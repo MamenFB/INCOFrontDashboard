@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "./Category.css";
+import "./Course.css";
 
-const Category = () => {
-  const [category, setCategory] = useState([]);
+const course = () => {
+  const [course, setcourse] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/auth/category")
+      .get("http://localhost:3000/auth/course")
       .then((result) => {
         //console.log(result.data);
         if (result.data.Status) {
-          setCategory(result.data.Result);
+          setcourse(result.data.Result);
         } else {
           alert(result.data.Error);
         }
@@ -22,20 +22,20 @@ const Category = () => {
   return (
     <div className="px-5 mt-3">
       <div className="d-flex justify-content-center">
-        <h3>Category List</h3>
+        <h3>course List</h3>
       </div>
-      <Link to="/dashboard/add_category" className="btn btn-success">
-        Add Category
+      <Link to="/dashboard/Addcourse" className="btn btn-success">
+        Add course
       </Link>
       <div className="mt-3">
         <table className="table ">
           <thead>
             <tr>
-              <th>Department</th>
+              <th>Course</th>
             </tr>
           </thead>
           <tbody>
-            {category.map((c) => (
+            {course.map((c) => (
               <tr>
                 <td>{c.name}</td>
               </tr>
@@ -47,4 +47,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default course;
