@@ -15,6 +15,7 @@ const Start = () => {
             navigate("dashboard");
           } else {
             navigate("/employee_detail/" + result.data.id);
+            navigate("/teacher_detail/" + result.data.id); 
           }
         }
       })

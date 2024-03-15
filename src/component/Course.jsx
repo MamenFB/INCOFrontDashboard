@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "./Course.css";
+import  "../assets/Course.css";
 
-const course = () => {
+const Course = () => {
   const [course, setcourse] = useState([]);
 
   useEffect(() => {
@@ -47,4 +47,4 @@ const course = () => {
   );
 };
 
-export default course;
+export default Course;

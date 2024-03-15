@@ -2,21 +2,28 @@ import "./App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./component/Login";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./component/Dashboard";
 import Home from "./component/Home";
 import Employee from "./component/Employee";
+import Teacher from "./component/Teacher";
 import Course from "./component/Course";
 import Profile from "./component/Profile";
 import AddCourse from "./component/AddCourse";
 import AddEmployee from "./component/AddEmployee";
 import EditEmployee from "./component/EditEmployee";
+import AddTeacher from "./component/AddTeacher";
+import EditTeacher from "./component/AddTeacher";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Start from "./component/Start";
 import EmployeeLogin from "./EmployeeLogin";
 import EmployeeDetail from "./component/EmployeeDetail";
-import { useEffect } from "react";
+import TeacherLogin from "./TeacherLogin";
+import TeacherDetail from "./component/TeacherDetail";
+import CourseGradesChart from "./component/CourseGradesChart";
+
+
 
 function App() {
   return (
@@ -30,17 +37,17 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="" element={<Home />}></Route>
           <Route path="/dashboard/employee" element={<Employee />}></Route>
+          <Route path="/dashboard/teacher" element={<Teacher />}></Route>
           <Route path="/dashboard/Course" element={<Course />}></Route>
           <Route path="/dashboard/profile" element={<Profile />}></Route>
+          
+          <Route path="/dashboard/CourseGradesChart" element={<CourseGradesChart />} />
+
           <Route path="/dashboard/AddCourse" element={<AddCourse />}></Route>
-          <Route
-            path="/dashboard/add_employee"
-            element={<AddEmployee />}
-          ></Route>
-          <Route
-            path="/dashboard/edit_employee/:id"
-            element={<EditEmployee />}
-          ></Route>
+          <Route path="/dashboard/add_employee" element={<AddEmployee />}></Route>
+          <Route path="/dashboard/edit_employee/:id" element={<EditEmployee />}></Route>
+          <Route path="/dashboard/add_teacher" element={<AddTeacher />}></Route>
+          <Route path="/dashboard/edit_teacher/:id" element={<EditTeacher />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
