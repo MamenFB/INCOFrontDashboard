@@ -10,7 +10,6 @@ const Teachers = () => {
     axios
       .get("http://localhost:3000/auth/teacher")
       .then((result) => {
-        //console.log(result.data);
         if (result.data.Status) {
           setTeacher(result.data.Result);
         } else {
@@ -25,9 +24,7 @@ const Teachers = () => {
       .delete("http://localhost:3000/auth/delete_teacher/" + id)
       .then((result) => {
         if (result.data.Status) {
-          toast.success("Teacher  deleted succesfully!");
-          //setTimeout(() => navigate("/dashboard/employee"), 300);
-          //setTimeout(() => window.location.reload(), 500);
+          toast.success("Teacher deleted succesfully!");
           setTimeout(function () {
             window.location.reload();
           }, 500);
@@ -40,7 +37,7 @@ const Teachers = () => {
   return (
     <div className="px-5 mt-3">
       <div className="d-flex justify-content-center">
-        <h3> User List</h3>
+        <h3>User List</h3>
       </div>
       <Link to="/dashboard/add_teacher" className="btn btn-success">
         Add User
@@ -52,7 +49,8 @@ const Teachers = () => {
               <th>Name</th>
               <th>Image</th>
               <th>Email</th>
-              <th>Department</th>
+              
+              <th>Course</th> 
               <th>Action</th>
             </tr>
           </thead>
@@ -65,12 +63,10 @@ const Teachers = () => {
                     src={`http://localhost:3000/Images/` + e.image}
                     className="teacher_image"
                     alt=""
-                    srcet=""
                   />
                 </td>
                 <td>{e.email}</td>
-                <td>{e.address}</td>
-
+                 
                 <td>{e.course}</td>
                 <td>
                   <Link

@@ -19,11 +19,17 @@ import "react-toastify/dist/ReactToastify.css";
 import Start from "./component/Start";
 import EmployeeLogin from "./EmployeeLogin";
 import EmployeeDetail from "./component/EmployeeDetail";
-import TeacherLogin from "./TeacherLogin";
-import TeacherDetail from "./component/TeacherDetail";
+// import TeacherLogin from "./TeacherLogin";
+// import TeacherDetail from "./component/TeacherDetail";
 import CourseGradesChart from "./component/CourseGradesChart";
 
 
+const data = [
+  { curso: "Matemáticas", promedio: 85 },
+  { curso: "Historia", promedio: 78 },
+  { curso: "Ciencias", promedio: 92 },
+
+];
 
 function App() {
   return (
@@ -33,6 +39,8 @@ function App() {
         <Route path="/" element={<Start />}></Route>
         <Route path="/adminlogin" element={<Login />}></Route>
         <Route path="/employee_login" element={<EmployeeLogin />}></Route>
+        {/* <Route path="/TeacherLogin" element={<TeacherLogin />}></Route> */}
+        {/* <Route path="/TeacherDetail" element={<TeacherDetail />}></Route> */}
         <Route path="/employee_detail/:id" element={<EmployeeDetail />}></Route>
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="" element={<Home />}></Route>
@@ -41,7 +49,7 @@ function App() {
           <Route path="/dashboard/Course" element={<Course />}></Route>
           <Route path="/dashboard/profile" element={<Profile />}></Route>
           
-          <Route path="/dashboard/CourseGradesChart" element={<CourseGradesChart />} />
+          <Route path="/dashboard/CourseGradesChart" element={<CourseGradesChart data={data} />} />
 
           <Route path="/dashboard/AddCourse" element={<AddCourse />}></Route>
           <Route path="/dashboard/add_employee" element={<AddEmployee />}></Route>
