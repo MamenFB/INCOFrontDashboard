@@ -22,6 +22,9 @@ import EmployeeDetail from "./component/EmployeeDetail";
 // import TeacherLogin from "./TeacherLogin";
 // import TeacherDetail from "./component/TeacherDetail";
 import CourseGradesChart from "./component/CourseGradesChart";
+import CalendarComponent from "./component/CalendarComponent";
+
+
 
 
 const data = [
@@ -48,9 +51,8 @@ function App() {
           <Route path="/dashboard/teacher" element={<Teacher />}></Route>
           <Route path="/dashboard/Course" element={<Course />}></Route>
           <Route path="/dashboard/profile" element={<Profile />}></Route>
-          
           <Route path="/dashboard/CourseGradesChart" element={<CourseGradesChart data={data} />} />
-
+          <Route path="/dashboard/CalendarComponent" element={<CalendarComponent />}></Route>
           <Route path="/dashboard/AddCourse" element={<AddCourse />}></Route>
           <Route path="/dashboard/add_employee" element={<AddEmployee />}></Route>
           <Route path="/dashboard/edit_employee/:id" element={<EditEmployee />}></Route>
