@@ -25,7 +25,7 @@ const EmployeeDetail = () => {
   return (
     <div>
       <div className="p-2 d-flex justify-content-center shodow">
-        <h4>Employee Management System</h4>
+        <h4>INCO Student Dashbord</h4>
       </div>
       <div className="d-flex justify-content-center flex-column align-items-center mt-3">
         <img
@@ -37,7 +37,7 @@ const EmployeeDetail = () => {
         <div className="d-flex align-items-center flex-column mt-5">
           <h3>Name: {employee.name}</h3>
           <h3>Email: {employee.email}</h3>
-          <h3>age: ${employee.age}</h3>
+          <h3>Age: {employee.age}</h3>
         </div>
         <div>
           <button className="btn btn-primary me-2">Edit</button>

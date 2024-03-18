@@ -1,6 +1,6 @@
 .loginPage {
   background: url("./Images/Fondo_gradient_inco");
-  background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(10, 10, 10, 10, 0.5)),
+  background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(10, 10, 10, 0.5)),
     url("./Images/Fondo_gradient_inco");
   background-position: center;
   background-repeat: no-repeat;
@@ -16,4 +16,13 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+
+.container-fluid ul li a:hover {
+  background-color: gray;
+  color: white;
+}
+
+.text-pink {
+  color: rgb(233, 14, 116);
 }
