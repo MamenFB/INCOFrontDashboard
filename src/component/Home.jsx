@@ -13,7 +13,6 @@ const Home = () => {
   useEffect(() => {
     adminCount();
     employeeCount();
-    teacherCount();
     ageCount();
     AdminRecords();
   }, []);
@@ -41,6 +40,7 @@ const Home = () => {
       }
     });
   };
+
   const ageCount = () => {
     axios.get("http://localhost:3000/auth/age_count").then((result) => {
       if (result.data.Status) {
