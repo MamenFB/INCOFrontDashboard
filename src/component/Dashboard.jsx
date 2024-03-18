@@ -6,7 +6,7 @@ import axios from "axios";
 import "./style.css";
 
 // Import your calendar icon
-import CalendarIcon from "./CalendarIcon"; // Update the path accordingly
+import CalendarIcon from "./Calender"; // Update the path accordingly
 import Navbar from "./Navbar";
 
 const Dashboard = () => {
@@ -84,7 +84,7 @@ const Dashboard = () => {
                   className="nav-link px-0 align-middle text-white"
                 >
                   {/* Use your CalendarIcon component instead of the i tag */}
-                  <CalendarIcon />
+                  {/* <CalendarIcon /> */}
                   <span className="ms-2 d-none d-sm-inline">Calendar</span>
                 </Link>
               </li>
