@@ -83,8 +83,7 @@ const Dashboard = () => {
                   to="/dashboard/calendar"
                   className="nav-link px-0 align-middle text-white"
                 >
-                  {/* Use your CalendarIcon component instead of the i tag */}
-                  {/* <CalendarIcon /> */}
+                  <i className="fs-4 bi-calendar ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">Calendar</span>
                 </Link>
               </li>
