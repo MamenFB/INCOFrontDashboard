@@ -17,11 +17,16 @@ import Start from "./component/Start";
 import EmployeeLogin from "./EmployeeLogin";
 import EmployeeDetail from "./component/EmployeeDetail";
 import { useEffect } from "react";
+import Student from "./component/Student";
+import AddStudent from "./component/AddStudent";
+import Calendar from "./component/Calendar";
+import Navbar from "./component/Navbar";
 
 function App() {
   return (
     <BrowserRouter>
       <ToastContainer theme="dark" position="top-center" />
+
       <Routes>
         <Route path="/" element={<Start />}></Route>
         <Route path="/adminlogin" element={<Login />}></Route>
@@ -29,8 +34,10 @@ function App() {
         <Route path="/employee_detail/:id" element={<EmployeeDetail />}></Route>
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="" element={<Home />}></Route>
+          <Route path="/dashboard/student" element={<Student />}></Route>
           <Route path="/dashboard/employee" element={<Employee />}></Route>
           <Route path="/dashboard/Course" element={<Course />}></Route>
+          <Route path="/dashboard/calendar" element={<Calendar />}></Route>
           <Route path="/dashboard/profile" element={<Profile />}></Route>
           <Route path="/dashboard/AddCourse" element={<AddCourse />}></Route>
           <Route
@@ -41,6 +48,7 @@ function App() {
             path="/dashboard/edit_employee/:id"
             element={<EditEmployee />}
           ></Route>
+          <Route path="/dashboard/add_student" element={<AddStudent />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

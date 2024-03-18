@@ -1,7 +1,14 @@
 import React from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
+//import CalendarIcon from "./CalendarIcon";
 import axios from "axios";
+import "./style.css";
+
+// Import your calendar icon
+import CalendarIcon from "./CalendarIcon"; // Update the path accordingly
+import Navbar from "./Navbar";
+
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -16,7 +23,10 @@ const Dashboard = () => {
   return (
     <div className="container-fluid">
       <div className="row flex-nowrap">
-        <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+        <div
+          className="col-auto col-md-3 col-xl-2 px-sm-2 px-0"
+          style={{ backgroundColor: "navy" }}
+        >
           <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 ">
             <Link
               to="/dashboard"
@@ -28,7 +38,7 @@ const Dashboard = () => {
               className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
               id="menu"
             >
-              <li className="w-100">
+              <li className="w-100 p-1">
                 <Link
                   to="/dashboard"
                   className="nav-link text-white px-0 align-middle"
@@ -39,12 +49,23 @@ const Dashboard = () => {
               </li>
               <li className="w-100">
                 <Link
+                  to="/dashboard/student"
+                  className="nav-link px-0 align-middle text-white"
+                >
+                  <i className="fs-4 bi-people ms-2"></i>
+                  <span className="ms-2 d-none d-sm-inline">
+                    Manage Students
+                  </span>
+                </Link>
+              </li>
+              <li className="w-100">
+                <Link
                   to="/dashboard/employee"
                   className="nav-link px-0 align-middle text-white"
                 >
                   <i className="fs-4 bi-people ms-2"></i>
                   <span className="ms-2 d-none d-sm-inline">
-                    Manage Students/Teachers
+                    Manage Teachers
                   </span>
                 </Link>
               </li>
@@ -54,9 +75,21 @@ const Dashboard = () => {
                   className="nav-link px-0 align-middle text-white"
                 >
                   <i className="fs-4 bi-columns ms-2"></i>
-                  <span className="ms-2 d-none d-sm-inline">course</span>
+                  <span className="ms-2 d-none d-sm-inline">Course</span>
                 </Link>
               </li>
+              {/* <hr className="text-secondary" /> */}
+              <li className="w-100">
+                <Link
+                  to="/dashboard/calendar"
+                  className="nav-link px-0 align-middle text-white"
+                >
+                  {/* Use your CalendarIcon component instead of the i tag */}
+                  <CalendarIcon />
+                  <span className="ms-2 d-none d-sm-inline">Calendar</span>
+                </Link>
+              </li>
+
               <li className="w-100">
                 <Link
                   to="/dashboard/profile"
@@ -76,8 +109,10 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="col p-0 m-0">
-          <div className="p-2 d-flex justify-content-center shadow">
-            <h4>INCO Dashboard</h4>
+          <div className="p-2 d-flex justify-content-end" style={{ backgroundColor: "navy" }}>
+            {/* <h4>INCO Dashboard</h4> */}
+            <Navbar />
+         
           </div>
           <Outlet />
         </div>

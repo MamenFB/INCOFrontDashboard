@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const AddEmployee = () => {
-  const [employee, setEmployee] = useState({
+const AddStudent = () => {
+  const [student, setStudent] = useState({
     name: "",
     email: "",
     password: "",
@@ -32,20 +32,20 @@ const AddEmployee = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("name", employee.name);
-    formData.append("email", employee.email);
-    formData.append("password", employee.password);
-    formData.append("address", employee.address);
-    formData.append("age", employee.age);
-    formData.append("image", employee.image);
-    formData.append("course_id", employee.course_id);
+    formData.append("name", student.name);
+    formData.append("email", student.email);
+    formData.append("password", student.password);
+    formData.append("address", student.address);
+    formData.append("age", student.age);
+    formData.append("image", student.image);
+    formData.append("course_id", student.course_id);
 
     axios
-      .post("http://localhost:3000/auth/add_employee", formData)
+      .post("http://localhost:3000/auth/add_student", formData)
       .then((result) => {
         if (result.data.Status) {
-          toast.success("Employee  updated succesfully!");
-          setTimeout(() => navigate("/dashboard/employee"), 500);
+          toast.success("Student  updated succesfully!");
+          setTimeout(() => navigate("/dashboard/student"), 500);
         } else {
           alert(result.data.Error.toString());
         }
@@ -56,7 +56,7 @@ const AddEmployee = () => {
   return (
     <div className="d-flex justify-content-center align-items-center mt-3">
       <div className="p-3 rounded w-50 border">
-        <h3 className="text-center">Add Teacher</h3>
+        <h3 className="text-center">Add Student</h3>
         <form className="row g-1" onSubmit={handleSubmit}>
           <div className="col-12">
             <label htmlFor="inputName" className="form-label">
@@ -67,9 +67,7 @@ const AddEmployee = () => {
               className="form-control rounded-0"
               id="inputName"
               placeholder="Enter Name"
-              onChange={(e) =>
-                setEmployee({ ...employee, name: e.target.value })
-              }
+              onChange={(e) => setStudent({ ...student, name: e.target.value })}
             />
 
             <label htmlFor="inputEmail4" className="form-label">
@@ -82,7 +80,7 @@ const AddEmployee = () => {
               placeholder="Enter Email"
               autoComplete="off"
               onChange={(e) =>
-                setEmployee({ ...employee, email: e.target.value })
+                setStudent({ ...student, email: e.target.value })
               }
             />
 
@@ -95,7 +93,7 @@ const AddEmployee = () => {
               id="inputPassword4"
               placeholder="Enter Password"
               onChange={(e) =>
-                setEmployee({ ...employee, password: e.target.value })
+                setStudent({ ...student, password: e.target.value })
               }
             />
 
@@ -108,9 +106,7 @@ const AddEmployee = () => {
               id="inputage"
               placeholder="Enter age"
               autoComplete="off"
-              onChange={(e) =>
-                setEmployee({ ...employee, age: e.target.value })
-              }
+              onChange={(e) => setStudent({ ...student, age: e.target.value })}
             />
 
             <label htmlFor="inputAddress" className="form-label">
@@ -123,7 +119,7 @@ const AddEmployee = () => {
               placeholder="Your address"
               autoComplete="off"
               onChange={(e) =>
-                setEmployee({ ...employee, address: e.target.value })
+                setStudent({ ...student, address: e.target.value })
               }
             />
 
@@ -135,12 +131,14 @@ const AddEmployee = () => {
               id="course"
               className="form-select"
               onChange={(e) =>
-                setEmployee({ ...employee, course_id: e.target.value })
+                setStudent({ ...student, course_id: e.target.value })
               }
             >
-              {course.map((c) => {
+              {course.map((c, index) => {
+                // Check if c.id exists and is not null before using it as a key
+                const key = c.id != null ? c.id : index;
                 return (
-                  <option key={c.id} value={c.id}>
+                  <option key={key} value={c.id}>
                     {c.name}
                   </option>
                 );
@@ -156,13 +154,13 @@ const AddEmployee = () => {
               id="inputGroupFile01"
               name="image"
               onChange={(e) =>
-                setEmployee({ ...employee, image: e.target.files[0] })
+                setStudent({ ...student, image: e.target.files[0] })
               }
             />
           </div>
           <div className="col-12">
             <button type="submit" className="btn btn-primary w-100">
-              Add Employee
+              Add Student
             </button>
           </div>
         </form>
@@ -171,4 +169,4 @@ const AddEmployee = () => {
   );
 };
 
-export default AddEmployee;
+export default AddStudent;
