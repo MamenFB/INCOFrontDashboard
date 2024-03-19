@@ -42,6 +42,12 @@ const Calendar = () => {
     setEvents(updatedEvents);
   };
 
+  // Event handler for event drag and drop
+  const handleEventDrop = ({ event, start, end }) => {
+    const updatedEvent = { ...event, start, end };
+    handleUpdateEvent(updatedEvent);
+  };
+
   return (
     <div>
       <h2>Calendar</h2>
@@ -52,6 +58,10 @@ const Calendar = () => {
           startAccessor="start"
           endAccessor="end"
           style={{ margin: "20px" }}
+          selectable
+          onSelectSlot={(slotInfo) => console.log(slotInfo)}
+          onSelectEvent={(event) => console.log(event)}
+          onEventDrop={handleEventDrop}
         />
       </div>
     </div>

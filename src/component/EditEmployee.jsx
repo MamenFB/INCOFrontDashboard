@@ -45,23 +45,29 @@ const EditEmployee = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .put("http://localhost:3000/auth/edit_employee/" + id, employee)
-      .then((result) => {
-        if (result.data.Status) {
-          toast.success("Employee  updated succesfully!");
-          setTimeout(() => navigate("/dashboard/employee"), 500);
-        } else {
-          alert(result.data.error);
-        }
-      })
-      .catch((err) => console.log(err));
+    const isConfirmed = window.confirm(
+      "Are you sure you want to update this details?"
+    );
+
+    if (isConfirmed) {
+      axios
+        .put("http://localhost:3000/auth/edit_employee/" + id, employee)
+        .then((result) => {
+          if (result.data.Status) {
+            toast.success("Employee  updated succesfully!");
+            setTimeout(() => navigate("/dashboard/employee"), 500);
+          } else {
+            alert(result.data.error);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
     <div className="d-flex justify-content-center align-items-center mt-3">
       <div className="p-3 rounded w-50 border">
-        <h3 className="text-center">Edit Employee</h3>
+        <h3 className="text-center">Edit Teacher Details</h3>
         <form className="row g-1" onSubmit={handleSubmit}>
           <div className="col-12">
             <label for="inputName" className="form-label">
@@ -140,7 +146,7 @@ const EditEmployee = () => {
           </div>
           <div>
             <button type="submit" className="btn btn-primary w-100">
-              Edit User
+              Update details
             </button>
           </div>
         </form>
