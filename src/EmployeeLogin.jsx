@@ -50,7 +50,7 @@ const EmployeeLogin = () => {
     <div className="d-flex justify-content-center align-items-center vh-100 loginPage">
       <div className="p-3 rounded w-25 border loginForm">
         <div className="text-warning">{error && error}</div>
-        <h2>Login Page</h2>
+        <h2>Student</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="email">
@@ -79,7 +79,7 @@ const EmployeeLogin = () => {
               className="form-control rounded-0"
             />
           </div>
-          <button className="btn btn-success w-100 rounded-0 mb-2">
+          <button className="btn btn-custom01 w-100 rounded-3 mb-2">
             Log in
           </button>
           <div className="mb-1">
