@@ -50,8 +50,13 @@ const Login = () => {
     <div className="d-flex justify-content-center align-items-center vh-100 loginPage">
       <div className="p-3 rounded w-25 border loginForm">
         <div className="text-warning">{error && error}</div>
+<<<<<<< HEAD
         <h2>Login Page</h2>
         <form  onSubmit={handleSubmit}>
+=======
+        <h2>Teacher</h2>
+        <form onSubmit={handleSubmit}>
+>>>>>>> e1a04b71b4ffb04fda96fe17588824f504ee84af
           <div className="mb-3">
             <label htmlFor="email">
               <strong>Email:</strong>
@@ -79,7 +84,7 @@ const Login = () => {
               className="form-control rounded-0"
             />
           </div>
-          <button className="btn btn-success w-100 rounded-0 mb-2">
+          <button className="btn btn-custom02 w-100 rounded-3 mb-2">
             Log in
           </button>
           <div className="mb-1">

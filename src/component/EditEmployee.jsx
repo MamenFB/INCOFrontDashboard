@@ -8,20 +8,20 @@ const EditEmployee = () => {
   const [employee, setEmployee] = useState({
     name: "",
     email: "",
-    salary: "",
+    age: "",
     address: "",
-    category_id: 0,
+    course_id: 0,
   });
-  const [category, setCategory] = useState([]);
+  const [course, setcourse] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/auth/category")
+      .get("http://localhost:3000/auth/course")
       .then((result) => {
         //console.log(result.data);
         if (result.data.Status) {
-          setCategory(result.data.Result);
+          setcourse(result.data.Result);
         } else {
           alert(result.data.Error);
         }
@@ -36,8 +36,8 @@ const EditEmployee = () => {
           name: result.data.Result[0].name,
           email: result.data.Result[0].email,
           address: result.data.Result[0].address,
-          salary: result.data.Result[0].salary,
-          category_id: result.data.Result[0].category_id,
+          age: result.data.Result[0].age,
+          course_id: result.data.Result[0].course_id,
         });
       })
       .catch((err) => console.log(err));
@@ -45,23 +45,29 @@ const EditEmployee = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .put("http://localhost:3000/auth/edit_employee/" + id, employee)
-      .then((result) => {
-        if (result.data.Status) {
-          toast.success("Employee  updated succesfully!");
-          setTimeout(() => navigate("/dashboard/employee"), 500);
-        } else {
-          alert(result.data.error);
-        }
-      })
-      .catch((err) => console.log(err));
+    const isConfirmed = window.confirm(
+      "Are you sure you want to update this details?"
+    );
+
+    if (isConfirmed) {
+      axios
+        .put("http://localhost:3000/auth/edit_employee/" + id, employee)
+        .then((result) => {
+          if (result.data.Status) {
+            toast.success("Employee  updated succesfully!");
+            setTimeout(() => navigate("/dashboard/employee"), 500);
+          } else {
+            alert(result.data.error);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
     <div className="d-flex justify-content-center align-items-center mt-3">
       <div className="p-3 rounded w-50 border">
-        <h3 className="text-center">Edit Employee</h3>
+        <h3 className="text-center">Edit Teacher Details</h3>
         <form className="row g-1" onSubmit={handleSubmit}>
           <div className="col-12">
             <label for="inputName" className="form-label">
@@ -95,18 +101,18 @@ const EditEmployee = () => {
             />
           </div>
           <div className="col-12">
-            <label for="inputSalary" className="form-label">
-              Salary
+            <label for="inputage" className="form-label">
+              Age
             </label>
             <input
               className="form-control rounded-0"
-              id="inputSalary"
+              id="inputage"
               type="text"
-              placeholder="Enter Salary"
-              value={employee.salary}
+              placeholder="Enter age"
+              value={employee.age}
               aria-autocomplete="off"
               onChange={(e) =>
-                setEmployee({ ...employee, salary: e.target.value })
+                setEmployee({ ...employee, age: e.target.value })
               }
             />
           </div>
@@ -127,20 +133,20 @@ const EditEmployee = () => {
             />
           </div>
           <div className="col-12">
-            <label for="category" className="form-label">
-              Category
+            <label for="course" className="form-label">
+              Course
             </label>
-            <select name="category" id="category" className="form-select">
+            <select name="course" id="course" className="form-select">
               onChange=
-              {(e) => setEmployee({ ...employee, category_id: e.target.value })}
-              {category.map((c) => {
+              {(e) => setEmployee({ ...employee, course_id: e.target.value })}
+              {course.map((c) => {
                 return <option value={c.id}>{c.name}</option>;
               })}
             </select>
           </div>
           <div>
             <button type="submit" className="btn btn-primary w-100">
-              Edit Employee
+              Update details
             </button>
           </div>
         </form>

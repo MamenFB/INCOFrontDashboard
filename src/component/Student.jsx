@@ -3,16 +3,16 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const Employee = () => {
+const Student = () => {
   const navigate = useNavigate();
-  const [employee, setEmployee] = useState([]);
+  const [student, setStudent] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/auth/employee")
+      .get("http://localhost:3000/auth/student")
       .then((result) => {
-        //console.log(result.data);
+        console.log(result.data.Result);
         if (result.data.Status) {
-          setEmployee(result.data.Result);
+          setStudent(result.data.Result);
         } else {
           alert(result.data.Error);
         }
@@ -21,61 +21,77 @@ const Employee = () => {
   }, []);
 
   const handleDelete = (id) => {
-    axios
-      .delete("http://localhost:3000/auth/delete_employee/" + id)
-      .then((result) => {
-        if (result.data.Status) {
-          toast.success("Employee  deleted succesfully!");
-          //setTimeout(() => navigate("/dashboard/employee"), 300);
-          //setTimeout(() => window.location.reload(), 500);
-          setTimeout(function () {
-            window.location.reload();
-          }, 500);
-        } else {
-          alert(result.data.error);
-        }
-      });
+    // Display confirmation dialog
+    const isConfirmed = window.confirm(
+      "Are you sure you want to delete this student?"
+    );
+
+    if (isConfirmed) {
+      // If user confirms, proceed with deletion
+      axios
+        .delete("http://localhost:3000/auth/delete_student/" + id)
+        .then((result) => {
+          if (result.data.Status) {
+            toast.success("Student deleted successfully!");
+            setTimeout(function () {
+              window.location.reload();
+            }, 500);
+          } else {
+            alert(result.data.error);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
     <div className="px-5 mt-3">
       <div className="d-flex justify-content-center">
-        <h3> Teacher List</h3>
+        <h3> Student List</h3>
       </div>
-      <Link to="/dashboard/add_employee" className="btn btn-success">
-        Add Teacher
+      <Link to="/dashboard/add_student" className="btn btn-success">
+        Add student
       </Link>
       <div className="mt-3">
         <table className="table ">
           <thead>
             <tr>
+              {/* <th>ID</th> */}
               <th>Name</th>
               <th>Image</th>
               <th>Email</th>
               <th>Address</th>
-              <th>Department</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Course</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {employee.map((e) => (
-              <tr key={e.id}>
+            {student.map((e) => (
+              <tr key={e.email}>
                 <td>{e.name}</td>
                 <td>
                   <img
                     src={`http://localhost:3000/Images/` + e.image}
-                    className="employee_image"
+                    className="student_image"
                     alt=""
-                    srcet=""
+                    // srcet=""
+                    style={{
+                      maxWidth: "50px",
+                      maxHeight: "40px",
+                      borderRadius: "50%",
+                    }}
                   />
                 </td>
                 <td>{e.email}</td>
                 <td>{e.address}</td>
                 <td>{e.age}</td>
-                <td>{e.course}</td>
+                <td>{e.gender}</td>
+                <td>{e.course_id}</td>
                 <td>
                   <Link
-                    to={"/dashboard/edit_employee/" + e.id}
+                    to={"/dashboard/edit_student/" + e.id}
                     className="btn btn-info btn-sm me-2"
                   >
                     Edit
@@ -97,4 +113,4 @@ const Employee = () => {
   );
 };
 
-export default Employee;
+export default Student;
