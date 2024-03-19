@@ -1,0 +1,11 @@
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Set height to viewport height for vertical centering */
+}
+
+/* Optionally adjust the width of the schedule component */
+.e-schedule {
+  width: 80%;
+}

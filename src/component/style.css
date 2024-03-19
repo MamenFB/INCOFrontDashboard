@@ -1,0 +1,52 @@
+.loginPage {
+  color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 120%;
+}
+
+.logologin {
+  border-radius: 6px;
+}
+
+.loginForm {
+  background-color: #0c245c;
+  box-shadow: 5px 0 5px 3px rgba(0, 0, 0, 0.25),
+    0 5px 5px 3px rgba(0, 0, 0, 0.25);
+}
+
+.btn-custom01 {
+  background-color: #459bdb;
+  border-color: #459bdb;
+  color: #fff;
+}
+
+.btn-custom02 {
+  background-color: #44dccc;
+  border-color: #44dccc;
+  color: #fff;
+}
+
+.btn-custom01:hover {
+  background-color: #52638c;
+  border-color: #52638c;
+}
+
+.btn-custom02:hover {
+  background-color: #52638c;
+  border-color: #52638c;
+}
+
+.container-fluid ul li a:hover {
+  background-color: gray;
+  color: white;
+}
+
+.text-pink {
+  color: rgb(233, 14, 116);
+}
+.employee_image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
