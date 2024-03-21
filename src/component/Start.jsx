@@ -23,6 +23,11 @@ const Start = () => {
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 loginPage">
+<<<<<<< HEAD
+      <div className="p-3 rounded w-25 border loginForm ">
+        <h2 className="text-center">Login As</h2>
+        <div className="d-flex justify-content-between mt-5 mb-2 ">
+=======
       <div className="p-3 rounded w-25 border loginForm">
         <img
           src="../../public/Images//incologosinbackg.svg"
@@ -31,11 +36,12 @@ const Start = () => {
           style={{ width: "100%" }}
         />
         <div className="d-flex justify-content-between mt-5 mb-2">
+>>>>>>> e1a04b71b4ffb04fda96fe17588824f504ee84af
           <button
             type="button"
             className="btn btn-custom01"
             onClick={() => {
-              navigate("/employee_login");
+              navigate("/student_login");
             }}
           >
             Student

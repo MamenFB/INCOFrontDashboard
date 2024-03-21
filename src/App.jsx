@@ -13,7 +13,7 @@ import AddEmployee from "./component/AddEmployee";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Start from "./component/Start";
-import EmployeeLogin from "./EmployeeLogin";
+import StudentLogin from "./StudentLogin";
 import EmployeeDetail from "./component/EmployeeDetail";
 import { useEffect } from "react";
 import Student from "./component/Student";
@@ -29,7 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Start />}></Route>
         <Route path="/adminlogin" element={<Login />}></Route>
-        <Route path="/employee_login" element={<EmployeeLogin />}></Route>
+        <Route path="/student_login" element={<StudentLogin />}></Route>
         <Route path="/employee_detail/:id" element={<EmployeeDetail />}></Route>
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="" element={<Home />}></Route>
