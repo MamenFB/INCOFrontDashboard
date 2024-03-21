@@ -52,7 +52,7 @@ const Home = () => {
   return (
     <div className="p-3 bg-light">
       <div className="container-fluid">
-        <div className="row">
+                <div className="row">
           <div className="col-12 col-sm-6 col-md-4 col-lg-3 p-2 bg-light">
             <div className="d-flex justify-content-between p-4 align-items-center bg-white border border-secondary shadow-sm">
               <i className="fs-4 bi-people ms-2 text-success"></i>

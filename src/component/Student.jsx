@@ -56,20 +56,19 @@ const Student = () => {
         <table className="table ">
           <thead>
             <tr>
-              {/* <th>ID</th> */}
               <th>Name</th>
               <th>Image</th>
               <th>Email</th>
               <th>Address</th>
               <th>Age</th>
               <th>Gender</th>
+              <th>Nationality</th>
               <th>Course</th>
-              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {student.map((e) => (
-              <tr key={e.email}>
+              <tr key={e.id}>
                 <td>{e.name}</td>
                 <td>
                   <img
@@ -88,6 +87,7 @@ const Student = () => {
                 <td>{e.address}</td>
                 <td>{e.age}</td>
                 <td>{e.gender}</td>
+                <td>{e.nationality}</td>
                 <td>{e.course_id}</td>
                 <td>
                   <Link
