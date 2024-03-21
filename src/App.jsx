@@ -9,7 +9,7 @@ import Course from "./component/Course";
 import Profile from "./component/Profile";
 import AddCourse from "./component/AddCourse";
 import AddEmployee from "./component/AddEmployee";
-//import EditEmployee from "./component/EditEmployee";
+import EditEmployee from "./component/EditEmployee";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Start from "./component/Start";
@@ -19,7 +19,6 @@ import { useEffect } from "react";
 import Student from "./component/Student";
 import AddStudent from "./component/AddStudent";
 import Calendar from "./component/Calender.jsx"; // Import Calendar component
-import EditCourse from "./component/EditCourse.jsx";
 
 function App() {
   return (
@@ -36,22 +35,30 @@ function App() {
           <Route path="/dashboard/student" element={<Student />}></Route>
           <Route path="/dashboard/employee" element={<Employee />}></Route>
           <Route path="/dashboard/course" element={<Course />}></Route>{" "}
+          {/* Corrected lowercase "c" */}
           <Route path="/dashboard/Calendar" element={<Calendar />}></Route>{" "}
+          {/* Corrected lowercase "c" */}
           <Route path="/dashboard/profile" element={<Profile />}></Route>
           <Route
             path="/dashboard/addcourse"
             element={<AddCourse />}
           ></Route>{" "}
+          {/* Corrected lowercase "c" */}
           <Route
             path="/dashboard/add_employee"
             element={<AddEmployee />}
           ></Route>{" "}
-          {/* <Route
+          {/* Corrected lowercase "e" */}
+          <Route
             path="/dashboard/edit_employee/:id"
             element={<EditEmployee />}
-          ></Route>{" "} */}
-          <Route path="/dashboard/add_student" element={<AddStudent />}></Route>{" "}
-          <Route path="/dashboard/edit_course" element={<EditCourse />}></Route>{" "}
+          ></Route>{" "}
+          {/* Corrected lowercase "e" */}
+          <Route
+            path="/dashboard/add_student"
+            element={<AddStudent />}
+          ></Route>{" "}
+          {/* Corrected lowercase "s" */}
         </Route>
       </Routes>
     </BrowserRouter>
