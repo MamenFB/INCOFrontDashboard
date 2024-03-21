@@ -22,6 +22,7 @@ const Calendar = () => {
       end: new Date(2024, 2, 20, 15, 0),
     },
   ]);
+  
 
   // Event handler for adding new events
   const handleAddEvent = (newEvent) => {

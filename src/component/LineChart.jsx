@@ -9,8 +9,8 @@ const data = {
   datasets: [
     {
       label: "My First dataset",
-      backgroundColor: "rgb(255, 99, 132)",
-      borderColor: "rgb(255, 99, 132)",
+      backgroundColor: "#ebeff6",
+      borderColor: "ebeff6",
       data: [0, 10, 5, 2, 20, 30, 45],
     },
   ],

@@ -1,19 +1,29 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import SideBarStudent from "./SideBarStudent";
+import StudentProfile from "./StudentProfile";
+import Resources from "./Resources";
+import Calender from "./Calender";
+import Notifications from "./Notifications";
+import LineChart from "./LineChart";
+import PieChart from "./PieChart";
+
+
 
 const EmployeeDetail = () => {
-  const [employee, SetEmployee] = useState([]);
+  const [employee, setEmployee] = useState({});
   const { id } = useParams();
   const navigate = useNavigate();
+
   useEffect(() => {
     axios
-      .get("http://localhost:3000/employee/detail/" + id)
+      .get(`http://localhost:3000/employee/detail/${id}`)
       .then((result) => {
-        SetEmployee(result.data[0]);
+        setEmployee(result.data[0]);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
 
   const handleLogout = () => {
     axios.get("http://localhost:3000/employee/logout").then((result) => {
@@ -22,30 +32,77 @@ const EmployeeDetail = () => {
       }
     });
   };
+
   return (
     <div>
-      <div className="p-2 d-flex justify-content-center shodow">
-        <h4>INCO Student Dashbord</h4>
+      <div className="p-2 d-flex justify-content-center shadow">
+        <h4>INCO Student Dashboard</h4>
       </div>
-      <div className="d-flex justify-content-center flex-column align-items-center mt-3">
-        <img
-          src={`http://localhost:3000/Images/` + employee.image}
-          className="emp_det_image rounded-circle "
-          style={{ maxWidth: "30%", maxHeight: "30%" }}
-          alt="Employee Image"
-        />
-        <div className="d-flex align-items-center flex-column mt-5">
-          <h3>Name: {employee.name}</h3>
-          <h3>Email: {employee.email}</h3>
-          <h3>Age: {employee.age}</h3>
-        </div>
-        <div>
-          <button className="btn btn-primary me-2">Edit</button>
-          <button className="btn btn-danger" onClick={handleLogout}>
-            Logout
-          </button>
+      
+      <div className="container-fluid">
+      <div className="d-flex">
+        <SideBarStudent />
+        <div className="container fluid">
+       <StudentProfile/>
+
+       <div className="container">
+      <div className="row">
+        <div className="col-md-6">
+          <div className="p-3 border">
+            <h4>Notifications</h4>
+            <div className="small-pie-chart">
+            <Notifications/>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+
+       
+
+       <div className="container">
+      <div className="row">
+        <div className="col-md-6">
+          <div className="p-3 border">
+            <h4>Pie Chart</h4>
+            <div className="small-chart">
+              <PieChart />
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="p-3 border">
+            <h4>Line Chart</h4>
+            <div className="small-chart">
+              <LineChart />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="container">
+      <div className="row">
+        <div className="col-md-6">
+          <div className="p-3 border">
+            <h4>Calendar</h4>
+            <div className="small-pie-chart">
+            <Calender />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+       
+       <Resources/>
+      </div>
+      </div>
+     
+      </div>
+    
+
+     
     </div>
   );
 };

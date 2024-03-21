@@ -2,15 +2,15 @@ import React from "react";
 import Chart from "chart.js/auto";
 import { Pie } from "react-chartjs-2";
 
-const labels = ["January", "February", "March", "April", "May", "June"];
+const labels = ["January", "February", "March"];
 
 const data = {
   labels: labels,
   datasets: [
     {
       label: "My First dataset",
-      backgroundColor: "rgb(255, 99, 132)",
-      bordercolor: "rgb(25, 99, 132)",
+      backgroundColor: "#459bdb",
+      bordercolor: "#44dccc",
       data: [0, 10, 5, 2, 20, 30, 45],
     },
   ],
