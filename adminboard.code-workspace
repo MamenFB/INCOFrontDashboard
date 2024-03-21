@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../DASHBOARD/frontend/src/pages"
+		}
+	],
+	"settings": {}
+}
