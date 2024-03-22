@@ -7,13 +7,15 @@ import PieChart from "./PieChart";
 const Home = () => {
   const [studentTotal, setStudentTotal] = useState();
   const [employeeTotal, setEmployeeTotal] = useState();
-  const [ageTotal, setAgeTotal] = useState();
+  const [maleTotal, setMaleTotal] = useState();
+  const [femaleTotal, setFemaleTotal] = useState();
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
     studentCount();
     employeeCount();
-    ageCount();
+    maleCount();
+    femaleCount();
     studentRecords();
   }, []);
 
@@ -41,10 +43,18 @@ const Home = () => {
     });
   };
 
-  const ageCount = () => {
-    axios.get("http://localhost:3000/auth/age_count").then((result) => {
+  const maleCount = () => {
+    axios.get("http://localhost:3000/auth/male_count").then((result) => {
       if (result.data.Status) {
-        setAgeTotal(result.data.Result[0].age);
+        setMaleTotal(result.data.Result[0].gender); // Accessing 'gender' property instead of 'age'
+      }
+    });
+  };
+
+  const femaleCount = () => {
+    axios.get("http://localhost:3000/auth/female_count").then((result) => {
+      if (result.data.Status) {
+        setFemaleTotal(result.data.Result[0].gender); // Accessing 'gender' property instead of 'age'
       }
     });
   };
@@ -59,7 +69,7 @@ const Home = () => {
               <div>
                 <h3>Student</h3>
                 <h5> Total: </h5>
-                <h5> {employeeTotal * 2}</h5>
+                <h5> {employeeTotal}</h5>
               </div>
             </div>
           </div>
@@ -69,7 +79,7 @@ const Home = () => {
               <div>
                 <h3>Male</h3>
                 <h5> Total: </h5>
-                <h5> {studentTotal * 2}</h5>
+                <h5> {maleTotal}</h5>
               </div>
             </div>
           </div>
@@ -79,7 +89,7 @@ const Home = () => {
               <div>
                 <h3>Female</h3>
                 <h5> Total: </h5>
-                <h5> {studentTotal * 2}</h5>
+                <h5> {femaleTotal}</h5>
               </div>
             </div>
           </div>
