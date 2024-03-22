@@ -10,7 +10,7 @@ const AddStudent = () => {
     password: "",
     age: "",
     address: "",
-    course_id: "",
+    course: "",
     image: "",
   });
   const [course, setcourse] = useState([]);
@@ -37,8 +37,10 @@ const AddStudent = () => {
     formData.append("password", student.password);
     formData.append("address", student.address);
     formData.append("age", student.age);
+    formData.append("gender", student.gender);
+    formData.append("nationality", student.nationality);
     formData.append("image", student.image);
-    formData.append("course_id", student.course_id);
+    formData.append("course_id", student.course);
 
     axios
       .post("http://localhost:3000/auth/add_student", formData)
@@ -97,18 +99,6 @@ const AddStudent = () => {
               }
             />
 
-            <label htmlFor="inputage" className="form-label">
-              age
-            </label>
-            <input
-              type="text"
-              className="form-control rounded-0"
-              id="inputage"
-              placeholder="Enter age"
-              autoComplete="off"
-              onChange={(e) => setStudent({ ...student, age: e.target.value })}
-            />
-
             <label htmlFor="inputAddress" className="form-label">
               Address
             </label>
@@ -123,6 +113,58 @@ const AddStudent = () => {
               }
             />
 
+            <label htmlFor="inputage" className="form-label">
+              age
+            </label>
+            <input
+              type="text"
+              className="form-control rounded-0"
+              id="inputage"
+              placeholder="Enter age"
+              autoComplete="off"
+              onChange={(e) => setStudent({ ...student, age: e.target.value })}
+            />
+
+            <label htmlFor="male" className="form-check-label">
+              Male
+            </label>
+            <input
+              type="radio"
+              id="male"
+              name="gender"
+              value="male"
+              className="form-check-input"
+              onChange={(e) =>
+                setStudent({ ...student, gender: e.target.value })
+              }
+            />
+            <label htmlFor="female" className="form-check-label">
+              Female
+            </label>
+            <input
+              type="radio"
+              id="female"
+              name="gender"
+              value="female"
+              className="form-check-input"
+              onChange={(e) =>
+                setStudent({ ...student, gender: e.target.value })
+              }
+            />
+            <label htmlFor="inputage" className="form-label">
+              Nationality
+            </label>
+            <input
+              type="text"
+              className="form-control rounded-0"
+              id="inputage"
+              placeholder="Enter Nationality"
+              autoComplete="off"
+              onChange={(e) =>
+                setStudent({ ...student, nationality: e.target.value })
+              }
+            />
+
             <label htmlFor="course" className="form-label">
               course
             </label>
@@ -131,18 +173,14 @@ const AddStudent = () => {
               id="course"
               className="form-select"
               onChange={(e) =>
-                setStudent({ ...student, course_id: e.target.value })
+                setStudent({ ...student, course: e.target.value })
               }
             >
-              {course.map((c, index) => {
-                // Check if c.id exists and is not null before using it as a key
-                const key = c.id != null ? c.id : index;
-                return (
-                  <option key={key} value={c.id}>
-                    {c.name}
-                  </option>
-                );
-              })}
+              {course.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.name}
+                </option>
+              ))}
             </select>
 
             <label className="form-label" htmlFor="inputGroupFile01">

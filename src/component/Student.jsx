@@ -10,7 +10,7 @@ const Student = () => {
     axios
       .get("http://localhost:3000/auth/student")
       .then((result) => {
-        //console.log(result.data);
+        console.log(result.data.Result);
         if (result.data.Status) {
           setStudent(result.data.Result);
         } else {
@@ -21,20 +21,27 @@ const Student = () => {
   }, []);
 
   const handleDelete = (id) => {
-    axios
-      .delete("http://localhost:3000/auth/delete_student/" + id)
-      .then((result) => {
-        if (result.data.Status) {
-          toast.success("Student  deleted succesfully!");
-          //setTimeout(() => navigate("/dashboard/employee"), 300);
-          //setTimeout(() => window.location.reload(), 500);
-          setTimeout(function () {
-            window.location.reload();
-          }, 500);
-        } else {
-          alert(result.data.error);
-        }
-      });
+    // Display confirmation dialog
+    const isConfirmed = window.confirm(
+      "Are you sure you want to delete this student?"
+    );
+
+    if (isConfirmed) {
+      // If user confirms, proceed with deletion
+      axios
+        .delete("http://localhost:3000/auth/delete_student/" + id)
+        .then((result) => {
+          if (result.data.Status) {
+            toast.success("Student deleted successfully!");
+            setTimeout(function () {
+              window.location.reload();
+            }, 500);
+          } else {
+            alert(result.data.error);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
@@ -49,30 +56,40 @@ const Student = () => {
         <table className="table ">
           <thead>
             <tr>
+              {/* <th>ID</th> */}
               <th>Name</th>
               <th>Image</th>
               <th>Email</th>
               <th>Address</th>
               <th>Age</th>
+              <th>Gender</th>
+              <th>Nationality</th>
               <th>Course</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {student.map((e) => (
-              <tr key={e.id}>
+              <tr key={e.email}>
                 <td>{e.name}</td>
                 <td>
                   <img
                     src={`http://localhost:3000/Images/` + e.image}
                     className="student_image"
                     alt=""
-                    srcet=""
+                    // srcet=""
+                    style={{
+                      maxWidth: "50px",
+                      maxHeight: "40px",
+                      borderRadius: "50%",
+                    }}
                   />
                 </td>
                 <td>{e.email}</td>
                 <td>{e.address}</td>
                 <td>{e.age}</td>
+                <td>{e.gender}</td>
+                <td>{e.nationality}</td>
                 <td>{e.course}</td>
                 <td>
                   <Link
