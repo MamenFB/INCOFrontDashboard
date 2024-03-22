@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const StudentLogin = () => {
+const EmployeeLogin = () => {
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -94,4 +94,4 @@ const StudentLogin = () => {
   );
 };
 
-export default StudentLogin;
+export default EmployeeLogin;
