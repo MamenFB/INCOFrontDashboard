@@ -59,9 +59,7 @@ const Dashboard = () => {
                   className="nav-link px-0 align-middle text-white"
                 >
                   <i className="fs-4 bi-mortarboard ms-2"></i>
-                  <span className="ms-2 d-none d-sm-inline">
-                    Manage Students
-                  </span>
+                  <span className="ms-2 d-none d-sm-inline">Students</span>
                 </Link>
               </li>
               <li className="w-100">
@@ -70,9 +68,7 @@ const Dashboard = () => {
                   className="nav-link px-0 align-middle text-white"
                 >
                   <i className="fs-4 bi-person-badge ms-2"></i>
-                  <span className="ms-2 d-none d-sm-inline">
-                    Manage Teachers
-                  </span>
+                  <span className="ms-2 d-none d-sm-inline">Teachers</span>
                 </Link>
               </li>
               <li className="w-100">

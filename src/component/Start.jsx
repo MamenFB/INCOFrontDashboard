@@ -35,7 +35,7 @@ const Start = () => {
             type="button"
             className="btn btn-custom01"
             onClick={() => {
-              navigate("/employee_login");
+              navigate("/student_login");
             }}
           >
             Student
