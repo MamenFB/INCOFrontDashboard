@@ -1,75 +1,70 @@
- ## INCO DASHBOARD<br>
+# Getting Started with Create React App
 
-## 🎯 Our Objective
-Description
-The INCO Dashboard is a Customer Relationship Management (CRM) solution specifically designed for INCO, an international organization with a presence in more than 50 countries. This tool is developed to efficiently manage information related to the courses offered by the organization and the enrolled students. With the INCO Dashboard, we aim to overcome the challenges of manual management through public forms and spreadsheets, thus optimizing internal processes and improving the administrative users' and students' experience.
-<br><br>
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## 💫 Final Result
-Features
-Course and Student Management: Intuitive interface for adding, editing, and deleting information about courses and students.
-Custom Forms: Easy-to-use forms for uploading relevant information directly into the database.
-Administrative Permissions: Access control for editing and deleting data, ensuring proper information management.
-Data Dashboard: Clear and accessible visualization of the most relevant information for the organization, including customized KPIs and real-time data visualization.
-Corporate Identity: Custom design according to INCO's corporate identity, providing a coherent and professional user experience.
-<br><br><br>
+## Available Scripts
 
+In the project directory, you can run:
 
-## ⚙️ Technologies
+### `npm start`
 
--📍 Backend:    <br>
-![Static Badge](https://img.shields.io/badge/expressL-4.18.2-green?logo=express)
-![Static Badge](https://img.shields.io/badge/MySQL-3.9.1-blue?logo=MySQL) <br>
--📍 Frontend: <br>
-![Static Badge](https://img.shields.io/badge/Boostrasp-5.3.2-violet?logo=bootstrap)
-![Static Badge](https://img.shields.io/badge/vite-5.0.8-yellow?logo=vite) <br>
--📍 Base de Datos:<br>
-![Static Badge](https://img.shields.io/badge/React-18.2.0-green?logo=react)
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
+### `npm test`
 
-<br><br>
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `npm run build`
 
-## 🚀🚀 Installation Steps. Get Started:
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-To run Pure Treats locally:
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-1. Clone the repository.
-2. Install dependencies using npm install for the frontend and for the backend.
-3. Configure the database settings in the application.properties file.
-4. Run the application using npm start for the frontend and  for the backend.
-   
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-<br><br>
+### `npm run eject`
 
-## 🪢 Branches
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-| BRANCH   | Description                                                                           |
-| -------- | ------------------------------------------------------------------------------------- |
-| main     | Main branch. Only final functional versions of the user stories will appear here |
-| dev      | Development branch. Here we merge frontend and backend branches and check stability |
-| backend  | Backend development branch 
-| frontend | Frontend development branch                                             |
-                           |
-<br><br>
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
+## Learn More
 
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## 🤝 Contributions
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-Contributions are welcome. If you have any suggestions for improvement, please open an issue or pull request
-<br>
+### Code Splitting
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
+### Analyzing the Bundle Size
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-## 👩‍💻 Authors
+### Making a Progressive Web App
 
-Created by:
-- 🔗 [Ramesh](https://github.com/RameshNada)
-- 🔗 [Erwin Massa](https://github.com/Ermapla)
-- 🔗 [Miguel](https://github.com/MiguelMeixoeiro)
-- 🔗 [Mamen](https://github.com/MamenFB)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
