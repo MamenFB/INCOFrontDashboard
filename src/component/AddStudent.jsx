@@ -10,7 +10,7 @@ const AddStudent = () => {
     password: "",
     age: "",
     address: "",
-    course_id: "",
+    course: "",
     image: "",
   });
   const [course, setcourse] = useState([]);
@@ -40,7 +40,7 @@ const AddStudent = () => {
     formData.append("gender", student.gender);
     formData.append("nationality", student.nationality);
     formData.append("image", student.image);
-    formData.append("course_id", student.course_id);
+    formData.append("course_id", student.course);
 
     axios
       .post("http://localhost:3000/auth/add_student", formData)
@@ -173,7 +173,7 @@ const AddStudent = () => {
               id="course"
               className="form-select"
               onChange={(e) =>
-                setStudent({ ...student, course_id: e.target.value })
+                setStudent({ ...student, course: e.target.value })
               }
             >
               {course.map((c) => (
