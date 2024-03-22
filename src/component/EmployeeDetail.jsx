@@ -13,6 +13,8 @@ import PieChart from "./PieChart";
 
 const EmployeeDetail = () => {
   const [employee, setEmployee] = useState({});
+  const [editedAddress, setEditedAddress] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -21,6 +23,7 @@ const EmployeeDetail = () => {
       .get(`http://localhost:3000/employee/detail/${id}`)
       .then((result) => {
         setEmployee(result.data[0]);
+        setEditedAddress(result.data[0].address);
       })
       .catch((err) => console.log(err));
   }, [id]);
@@ -31,6 +34,35 @@ const EmployeeDetail = () => {
         navigate("/");
       }
     });
+  };
+
+  const handleEditAddress = () => {
+    setIsEditing(true);
+  };
+
+  const handleSaveAddress = () => {
+    // Perform save operation (e.g., update employee data on backend)
+    // Update only the address field
+    const updatedEmployee = { ...employee, address: editedAddress };
+    axios.put(`http://localhost:3000/employee/update_address/${id}`, { address: editedAddress })
+      .then((response) => {
+        console.log("Employee address updated:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error updating employee address:", error);
+      });
+    setEmployee(updatedEmployee);
+    setIsEditing(false);
+  };
+
+  const handleCancelEdit = () => {
+    // Reset the edited address to the original address
+    setEditedAddress(employee.address);
+    setIsEditing(false);
+  };
+
+  const handleAddressChange = (e) => {
+    setEditedAddress(e.target.value);
   };
 
   return (

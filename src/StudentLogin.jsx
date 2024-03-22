@@ -16,7 +16,7 @@ const StudentLogin = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const startTime = performance.now(); // Get the start time
-    const timeoutDuration = 3000; // Set the timeout duration in milliseconds
+    const timeoutDuration = 5000; // Set the timeout duration in milliseconds
     let timeoutId; // Initialize a variable to store the timeout ID
 
     // Set a timeout to handle cases where the server takes longer than expected to respond
@@ -27,7 +27,7 @@ const StudentLogin = () => {
 
     try {
       const result = await axios.post(
-        "http://localhost:3000/employee/employee_login",
+        "http://localhost:3000/employee/student_login",
         values
       );
       clearTimeout(timeoutId); // Clear the timeout if the server responds within the timeout duration
@@ -35,7 +35,7 @@ const StudentLogin = () => {
       const responseTime = endTime - startTime; // Calculate the response time
       console.log(`Response time: ${responseTime} ms`);
       if (result.data.loginStatus) {
-        navigate("/employee_detail/" + result.data.id);
+        navigate("/student_detail/" + result.data.id);
       } else {
         setError(result.data.Error);
       }

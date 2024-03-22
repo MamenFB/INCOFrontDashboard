@@ -63,6 +63,7 @@ const Student = () => {
               <th>Address</th>
               <th>Age</th>
               <th>Gender</th>
+              <th>Nationality</th>
               <th>Course</th>
               <th>Action</th>
             </tr>
@@ -88,7 +89,8 @@ const Student = () => {
                 <td>{e.address}</td>
                 <td>{e.age}</td>
                 <td>{e.gender}</td>
-                <td>{e.course_id}</td>
+                <td>{e.nationality}</td>
+                <td>{e.course}</td>
                 <td>
                   <Link
                     to={"/dashboard/edit_student/" + e.id}

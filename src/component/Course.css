@@ -1,3 +1,5 @@
-th, td {
-    border-bottom: 2px solid rgb(201, 201, 240);
-  }
+tr,
+th,
+td {
+  border-bottom: 2px solid rgb(201, 201, 240);
+}
