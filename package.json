@@ -1,40 +1,49 @@
 {
-  "name": "employeems",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "google-calendar-clone-vanilla",
+  "version": "1.0.0",
+  "description": "zero dependency clone of google calendar written in vanilla javascript",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev": "webpack serve --open",
+    "deploy": "gh-pages -d dist"
   },
-  "dependencies": {
-    "@syncfusion/ej2-react-calendars": "^25.1.35",
-    "@syncfusion/ej2-react-schedule": "^25.1.35",
-    "axios": "^1.6.7",
-    "bootstrap": "^5.3.2",
-    "bootstrap-icons": "^1.11.3",
-    "chart.js": "^4.4.2",
-    "moment": "^2.30.1",
-    "react": "^18.2.0",
-    "react-big-calendar": "^1.11.2",
-    "react-bootstrap": "^2.10.2",
-    "react-chartjs-2": "^5.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^5.0.1",
-    "react-router-dom": "^6.22.1",
-    "react-toastify": "^10.0.4",
-    "recharts": "^2.12.3"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaseottofy/google-calendar-clone-vanilla.git"
   },
+  "keywords": [
+    "google-calendar",
+    "html",
+    "css",
+    "javascript",
+    "calendar",
+    "clone",
+    "google",
+    "vanilla",
+    "vanillajs"
+  ],
+  "author": "chase ottofy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chaseottofy/google-calendar-clone-vanilla/issues"
+  },
+  "homepage": "https://github.com/chaseottofy/google-calendar-clone-vanilla#readme",
   "devDependencies": {
-    "@types/react": "^18.2.43",
-    "@types/react-dom": "^18.2.17",
-    "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.55.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "vite": "^5.1.6"
+    "compression-webpack-plugin": "^10.0.0",
+    "css-loader": "^6.7.3",
+    "css-minimizer-webpack-plugin": "^4.2.2",
+    "gh-pages": "^5.0.0",
+    "html-minimizer-webpack-plugin": "^4.3.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.2",
+    "source-map-loader": "^4.0.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-bundle-analyzer": "^4.7.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1",
+    "webpack-manifest-plugin": "^5.0.0",
+    "webpack-nano": "^1.1.1"
   }
 }
