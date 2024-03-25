@@ -1,3 +1,4 @@
+//student
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -102,21 +103,31 @@ const Student = () => {
             <div className="d-flex justify-content-between p-3 align-items-center bg-white border border-secondary shadow-sm">
               <div>
                 <h3>
-                  <i class="fs-4 bi-mortarboard ms-2"></i> Students
+                  <i
+                    className="fs-0 bi-mortarboard ms-2"
+                    style={{ color: "#32CD32", fontSize: "4rem" }}
+                  ></i>{" "}
+                  Students
                 </h3>
                 <h5>Total: {employeeTotal}</h5>
                 <div className="d-flex">
                   <h5>
-                    <i class="bi bi-person-fill fs-4 ms-2 text-primary fs-1"></i>{" "}
+                    <i className="bi bi-person-fill fs-1 ms-2 text-primary fs-1"></i>
                     Male Total: {maleCount}
                   </h5>
                   <h5 className="ms-3">
-                    <i class="bi bi-person-fill fs-4 ms-2 text-pink fs-1"></i>{" "}
+                    <i
+                      className="bi bi-person-fill fs-1 ms-2"
+                      style={{ color: "#FF007F" }}
+                    ></i>
                     Female Total: {femaleCount}
                   </h5>
                   <h5 className="ms-3">
-                    <i class="bi bi-person-badge-fill"></i> Undefined Total:{" "}
-                    {undefinedCount}
+                    <i
+                      className="bi fs-1 bi-person-fill ms-2"
+                      style={{ color: "#FFA500", fontSize: "4rem" }}
+                    ></i>{" "}
+                    Undefined Total: {undefinedCount}
                   </h5>
                 </div>
               </div>
