@@ -48,24 +48,4 @@ const Calendar = () => {
     handleUpdateEvent(updatedEvent);
   };
 
-  return (
-    <div>
-      <h2>Calendar</h2>
-      <div style={{ height: 500 }}>
-        <BigCalendar
-          localizer={localizer}
-          events={events}
-          startAccessor="start"
-          endAccessor="end"
-          style={{ margin: "20px" }}
-          selectable
-          onSelectSlot={(slotInfo) => console.log(slotInfo)}
-          onSelectEvent={(event) => console.log(event)}
-          onEventDrop={handleEventDrop}
-        />
-      </div>
-    </div>
-  );
-};
 
-export default Calendar;
