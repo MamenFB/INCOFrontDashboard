@@ -1,27 +1,68 @@
-// LineChart.jsx
 import React from "react";
 import { Line } from "react-chartjs-2";
 
-const labels = ["January", "February", "March", "April", "May", "June"];
+const LineChart = ({ maleCount, femaleCount, undefinedCount }) => {
+  const data = {
+    labels: ["Male", "Female", "Undefined"],
+    datasets: [
+      {
+        label: "STUDENT CHART",
+        data: [maleCount, femaleCount, undefinedCount],
+        fill: false,
+        backgroundColor: [
+          "rgba(63, 81, 181, 0.2)" /* Vibrant Blue for Male */,
+          "rgba((255, 105, 180, 0.2)", // vibrant pink for Female
+          "rgba(255, 165, 0, 0.2)", // orange for Undefined
+        ],
+        borderColor: [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+        ],
+        borderWidth: 2, // Increase the border width for better visibility
+        pointRadius: 5, // Increase the point radius for better visibility
+      },
+    ],
+  };
 
-const data = {
-  labels: labels,
-  datasets: [
-    {
-      label: "My First dataset",
-      backgroundColor: "#ebeff6",
-      borderColor: "ebeff6",
-      data: [0, 10, 5, 2, 20, 30, 45],
+  const options = {
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: {
+          display: true,
+          color: "rgba(0, 0, 0, 0.1)", // Add grid lines with a lighter color
+        },
+        ticks: {
+          font: {
+            size: 14, // Increase font size for better readability
+          },
+        },
+      },
+      x: {
+        ticks: {
+          font: {
+            size: 14,
+          },
+        },
+      },
     },
-  ],
-};
+    plugins: {
+      legend: {
+        labels: {
+          font: {
+            size: 16, // Increase legend font size
+          },
+        },
+      },
+    },
+  };
 
-function LineChart() {
   return (
-    <div className="bg-white border border-secondary">
-      <Line data={data}></Line>
+    <div className="bg-white border border-secondary p-3">
+      <Line data={data} options={options} />
     </div>
   );
-}
+};
 
 export default LineChart;
