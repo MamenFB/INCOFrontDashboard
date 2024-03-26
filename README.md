@@ -17,7 +17,6 @@ Corporate Identity: Custom design according to INCO's corporate identity, provid
 
 ## ⚙️ Technologies
 
-
 -📍 Backend:    <br>
 ![Static Badge](https://img.shields.io/badge/expressL-4.18.2-green?logo=express)
 ![Static Badge](https://img.shields.io/badge/MySQL-3.9.1-blue?logo=MySQL) <br>
@@ -28,6 +27,8 @@ Corporate Identity: Custom design according to INCO's corporate identity, provid
 ![Static Badge](https://img.shields.io/badge/MySQL-8.0-blue?logo=MySQL)
 
 
+
+
 <br><br>
 
 
@@ -36,10 +37,8 @@ Corporate Identity: Custom design according to INCO's corporate identity, provid
 To run Pure Treats locally:
 
 1. Clone the repository.
-2. Install dependencies using npm install for the frontend and for the backend.
-3. Configure the database settings in the application.properties file.
-4. Run the application using npm start for the frontend and  for the backend.
-   
+2. Install dependencies using npm install for the frontend and for the backend..
+3. Run the application using npm run dev for the frontend and  npm start for the backend.
 
 <br><br>
 
