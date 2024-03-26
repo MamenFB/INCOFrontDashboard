@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./component/Login";
@@ -22,15 +20,12 @@ import AddStudent from "./component/AddStudent";
 import Calendar from "./component/Calender.jsx"; // Import Calendar component
 import EditCourse from "./component/EditCourse";
 import Admin from "./component/Admin.jsx";
->>>>>>> origin/Ramesh
 
 function App() {
   return (
     <BrowserRouter>
       <ToastContainer theme="dark" position="top-center" />
 
-<<<<<<< HEAD
-=======
       <Routes>
         <Route path="/" element={<Start />} />
         <Route path="/adminlogin" element={<Login />} />
@@ -56,4 +51,3 @@ function App() {
 }
 
 export default App;
->>>>>>> origin/Ramesh
