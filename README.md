@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 # INCO DASHBOARD
 
 ## 🎯 Our Objectves
@@ -8,8 +6,9 @@
 
 ## 💫 Final Reslts
 
-![Pure Treats Landing Page]
-=======
+# Pure Treats Landing Page
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -19,7 +18,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 ### `npm start`
->>>>>>> 1032a4be2cf89faedd6c3b6555855f73f6aa0b89
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -29,14 +27,6 @@ You may also see any lint errors in the console.
 
 ### `npm test`
 
-<<<<<<< HEAD
-![Static Badge](https://img.shields.io/badge/FrontendDep-npm-red?logo=npm)
-![Static Badge](https://img.shields.io/badge/FrontendDev-Vite%20v5.0.8-red?logo=vite)
-![Static Badge](https://img.shields.io/badge/FrontendDep-Axios%20v.1.6.7-red?logo=axios)
-![Static Badge](https://img.shields.io/badge/FrontendDep-MUI-red?logo=mui)
-
-## 🚀🚀 Installation Steps. Get Sttead
-=======
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
@@ -47,52 +37,38 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
->>>>>>> 1032a4be2cf89faedd6c3b6555855f73f6aa0b89
+
+# Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-<<<<<<< HEAD
-1. Clone the repository.
-2. Install dependencies using npm install for the frontend and mvn clean install for the backend.
-3. Configure the database settings in the application.properties file.  
-4. Run the application using npm start for the frontend and mvn spring-boot:run for the backend.
-
-## 🪢 Brances
-
-| BRANCH   | Description                                                                           |
-| -------- | ------------------------------------------------------------------------------------- |
-| main     | Main branch. Only final functional versions of the user stories will appear here |
-| dev      | Development branch. Here we merge frontend and backend branches and check stability |
-| backend  | Backend development branch                                                           |
-| frontend | Frontend development branch                                                          |
-| feature/...  | Various branches each one for an individual feature                                  |
-
-## 💻 Backend methosd tale
-
-| Method  | URL             | Objective                     |
-| ------- |:---------------:| -----------------------------:|
-| GET     | /products       | View all products             |
-| GET     | /products/{id}  | View information about one product |
-| GET     | /products?query=| Filtered search               |
-
-## 🤝 Contributng
-
-Contributions are welcome. If you have any suggestions for improvement, please open an issue or pull request
-
-## 📜 Licese
-
-This project is licensed under the terms of the MIT license. This means that you can use, copy, modify and distribute the code freely, as long as you acknowledge the original authorship and do not use it for commercial purposes.
-
-## 👩‍💻 Auorts
-
-Created by:
-
-- 🔗 [Ramesh](<<https://github>
-- 🔗 [Erwin Massa](<<https://github.com/Ermapla>  
-- 🔗 [Miguel](<<https://github>
-- 🔗 [Mamen](<https://githb>)
->
-=======
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
@@ -185,7 +161,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/m
 
 ### Advanced Configuration
 
->>>>>>> origin/Dev
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment

@@ -13,13 +13,14 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Start from "./component/Start";
 import StudentLogin from "./StudentLogin";
-import EmployeeDetail from "./component/EmployeeDetail";
+import StudentDetail from "./component/student/StudentDetail.jsx";
 import { useEffect } from "react";
 import Student from "./component/Student";
 import AddStudent from "./component/AddStudent";
 import Calendar from "./component/Calender.jsx"; // Import Calendar component
 import EditCourse from "./component/EditCourse";
 import Admin from "./component/Admin.jsx";
+
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
         <Route path="/" element={<Start />} />
         <Route path="/adminlogin" element={<Login />} />
         <Route path="/student_login" element={<StudentLogin />} />
-        <Route path="/employee_detail/:id" element={<EmployeeDetail />} />
+    
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="" element={<Home />} />
           <Route path="student" element={<Student />} />
@@ -44,7 +45,7 @@ function App() {
           <Route path="edit_student/:id" element={<EditStudent />} />
           <Route path="edit_course/:id" element={<EditCourse />} />
         </Route>
-        <Route path="/student_detail/:id" element={<EmployeeDetail />} />
+        <Route path="/student_detail/:id" element={<StudentDetail />} />
       </Routes>
     </BrowserRouter>
   );

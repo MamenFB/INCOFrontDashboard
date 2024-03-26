@@ -50,3 +50,30 @@
   height: 40px;
   border-radius: 50%;
 }
+
+.Studen_profimage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-left: 20%;
+}
+
+.custom-background {
+  background: #0c378a;
+}
+
+.student-card {
+  margin-top: 3rem;
+  box-shadow: 3px 0 2px 2px rgba(0, 0, 0, 0.25),
+  0 5px 5px 3px rgba(0, 0, 0, 0.25);
+}
+
+.chart {
+  margin-top: 3rem;
+  margin-top: 3rem;
+  box-shadow: 2px 2px 4px  rgba(0, 0, 0, 0.25),
+  2px 3px 5px  rgba(0, 0, 0, 0.25);
+  margin-inline: 0,5rem;
+ 
+
+}
