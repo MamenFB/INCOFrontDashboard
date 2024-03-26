@@ -17,7 +17,6 @@ import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
 import { scheduleData } from "../data/dummy.jsx";
 import Header from "/src/component/Header";
 
-// eslint-disable-next-line react/destructuring-assignment
 const PropertyPane = (props) => <div className="mt-5">{props.children}</div>;
 
 const Scheduler = () => {
@@ -26,16 +25,37 @@ const Scheduler = () => {
   const change = (args) => {
     scheduleObj.selectedDate = args.value;
     scheduleObj.dataBind();
+    addEvent({ // Asumiendo que quieres añadir un evento de prueba al cambiar la fecha
+      title: "Nuevo Evento",
+      start_time: args.value,
+      end_time: args.value,
+      description: "Descripción del Evento",
+      user_id: 1 // Asegúrate de modificar esto según sea necesario
+    });
   };
 
-  const onDragStart = (arg) => {
-    // eslint-disable-next-line no-param-reassign
-    arg.navigation.enable = true;
+  const addEvent = async (eventData) => {
+    try {
+      const response = await fetch('http://localhost:3000/add-event', { // Asegúrate de que la URL coincida con tu configuración
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(eventData),
+      });
+
+      if (!response.ok) {
+        throw new Error('No se pudo añadir el evento');
+      }
+
+      const result = await response.json();
+      console.log(result.message);
+      // Aquí puedes actualizar el estado de tu aplicación si es necesario
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-<<<<<<< HEAD
-
-=======
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
       <Header category="App" title="Calendar" />
@@ -44,7 +64,6 @@ const Scheduler = () => {
         ref={(schedule) => setScheduleObj(schedule)}
         selectedDate={new Date(2021, 0, 10)}
         eventSettings={{ dataSource: scheduleData }}
-        dragStart={onDragStart}
       >
         <ViewsDirective>
           {["Day", "Week", "WorkWeek", "Month", "Agenda"].map((item) => (
@@ -77,4 +96,3 @@ const Scheduler = () => {
 };
 
 export default Scheduler;
->>>>>>> origin/Ramesh
