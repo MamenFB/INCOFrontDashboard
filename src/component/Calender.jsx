@@ -1,71 +1,76 @@
 import React, { useState } from "react";
-import { Calendar as BigCalendar, momentLocalizer } from "react-big-calendar";
-import moment from "moment";
-import "react-big-calendar/lib/css/react-big-calendar.css";
+import {
+  ScheduleComponent,
+  ViewsDirective,
+  ViewDirective,
+  Day,
+  Week,
+  WorkWeek,
+  Month,
+  Agenda,
+  Inject,
+  Resize,
+  DragAndDrop,
+} from "@syncfusion/ej2-react-schedule";
+import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
 
-// Initialize localizer for React Big Calendar
-const localizer = momentLocalizer(moment);
+import { scheduleData } from "../data/dummy.jsx";
+import Header from "/src/component/Header";
 
-const Calendar = () => {
-  // State to manage events
-  const [events, setEvents] = useState([
-    {
-      id: 0,
-      title: "Event 1",
-      start: new Date(2024, 2, 19, 10, 0),
-      end: new Date(2024, 2, 19, 12, 0),
-    },
-    {
-      id: 1,
-      title: "Event 2",
-      start: new Date(2024, 2, 20, 13, 0),
-      end: new Date(2024, 2, 20, 15, 0),
-    },
-  ]);
+// eslint-disable-next-line react/destructuring-assignment
+const PropertyPane = (props) => <div className="mt-5">{props.children}</div>;
 
-  // Event handler for adding new events
-  const handleAddEvent = (newEvent) => {
-    setEvents([...events, newEvent]);
+const Scheduler = () => {
+  const [scheduleObj, setScheduleObj] = useState();
+
+  const change = (args) => {
+    scheduleObj.selectedDate = args.value;
+    scheduleObj.dataBind();
   };
 
-  // Event handler for updating events
-  const handleUpdateEvent = (updatedEvent) => {
-    const updatedEvents = events.map((event) =>
-      event.id === updatedEvent.id ? updatedEvent : event
-    );
-    setEvents(updatedEvents);
-  };
-
-  // Event handler for deleting events
-  const handleDeleteEvent = (eventId) => {
-    const updatedEvents = events.filter((event) => event.id !== eventId);
-    setEvents(updatedEvents);
-  };
-
-  // Event handler for event drag and drop
-  const handleEventDrop = ({ event, start, end }) => {
-    const updatedEvent = { ...event, start, end };
-    handleUpdateEvent(updatedEvent);
+  const onDragStart = (arg) => {
+    // eslint-disable-next-line no-param-reassign
+    arg.navigation.enable = true;
   };
 
   return (
-    <div>
-      <h2>Calendar</h2>
-      <div style={{ height: 500 }}>
-        <BigCalendar
-          localizer={localizer}
-          events={events}
-          startAccessor="start"
-          endAccessor="end"
-          style={{ margin: "20px" }}
-          selectable
-          onSelectSlot={(slotInfo) => console.log(slotInfo)}
-          onSelectEvent={(event) => console.log(event)}
-          onEventDrop={handleEventDrop}
+    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+      <Header category="App" title="Calendar" />
+      <ScheduleComponent
+        height="650px"
+        ref={(schedule) => setScheduleObj(schedule)}
+        selectedDate={new Date(2021, 0, 10)}
+        eventSettings={{ dataSource: scheduleData }}
+        dragStart={onDragStart}
+      >
+        <ViewsDirective>
+          {["Day", "Week", "WorkWeek", "Month", "Agenda"].map((item) => (
+            <ViewDirective key={item} option={item} />
+          ))}
+        </ViewsDirective>
+        <Inject
+          services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]}
         />
-      </div>
+      </ScheduleComponent>
+      <PropertyPane>
+        <table style={{ width: "100%", background: "white" }}>
+          <tbody>
+            <tr style={{ height: "50px" }}>
+              <td style={{ width: "100%" }}>
+                <DatePickerComponent
+                  value={new Date(2021, 0, 10)}
+                  showClearButton={false}
+                  placeholder="Current Date"
+                  floatLabelType="Always"
+                  change={change}
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </PropertyPane>
     </div>
   );
 };
 
-export default Calendar;
+export default Scheduler;
