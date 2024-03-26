@@ -7,49 +7,18 @@ const Admin = () => {
   const navigate = useNavigate();
   const [student, setStudent] = useState([]);
   const [employeeTotal, setEmployeeTotal] = useState(0); // Define employeeTotal state
-  const [maleCount, setMaleCount] = useState(null); // Define maleCount state
-  const [femaleCount, setFemaleCount] = useState(null); // Define femaleCount state
-  const [undefinedCount, setUndefinedCount] = useState(null); // Define femaleCount state
   const [currentPage, setCurrentPage] = useState(1); // Define currentPage state
   const studentsPerPage = 5; // Define the number of students per page
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/auth/teacher")
+      .get("http://localhost:3000/auth/employee")
       .then((result) => {
         console.log(result.data.Result);
         if (result.data.Status) {
           const studentsData = result.data.Result;
           setStudent(studentsData);
           setEmployeeTotal(studentsData.length); // Update employeeTotal
-
-          // Log gender data for debugging
-          console.log(
-            "Gender data:",
-            studentsData.map((student) => student.gender)
-          );
-
-          // Count male and female students
-          let male = 0;
-          let female = 0;
-          let undefined = 0;
-          studentsData.forEach((student) => {
-            if (student.gender.toLowerCase() === "male") {
-              male++;
-            }
-            if (student.gender.toLowerCase() === "female") {
-              female++;
-            } else if (student.gender.toLowerCase() === "undefined") {
-              undefined++;
-            }
-          });
-          console.log("Male count:", male);
-          console.log("Female count:", female);
-
-          // Update male and female counts
-          setMaleCount(male);
-          setFemaleCount(female);
-          setUndefinedCount(undefined);
         } else {
           alert(result.data.Error);
         }
@@ -60,16 +29,16 @@ const Admin = () => {
   const handleDelete = (id) => {
     // Display confirmation dialog
     const isConfirmed = window.confirm(
-      "Are you sure you want to delete this student?"
+      "Are you sure you want to delete this Teacher?"
     );
 
     if (isConfirmed) {
       // If user confirms, proceed with deletion
       axios
-        .delete("http://localhost:3000/auth/delete_teacher/" + id)
+        .delete("http://localhost:3000/auth/delete_employee/" + id)
         .then((result) => {
           if (result.data.Status) {
-            toast.success("Student deleted successfully!");
+            toast.success("Teacher deleted successfully!");
             setTimeout(function () {
               window.location.reload();
             }, 500);
@@ -103,110 +72,91 @@ const Admin = () => {
               <div>
                 <h3>
                   <i
-                    class="fs-1 bi bi-people"
+                    className="fs-1 bi bi-people"
                     style={{ color: "#fd7e14", fontSize: "2rem" }}
                   ></i>{" "}
                   <strong style={{ fontWeight: "bold" }}>Teachers:</strong>{" "}
                   Total: {employeeTotal}
                 </h3>
-                <div className="d-flex">
-                  <h5>
-                    <i class="bi bi-person-fill fs-2 ms-2 text-primary fs-1"></i>{" "}
-                    Male Total: {maleCount}
-                  </h5>
-                  <h5 className="ms-3">
-                    <i class="bi bi-person-fill fs-2 fs-md-4 ms-2 text-pink"></i>{" "}
-                    Female Total: {femaleCount}
-                  </h5>
-                  <h5 className="ms-3">
-                    <i
-                      className="bi bi-person-fill"
-                      style={{ color: "yellowgreen", fontSize: "2rem" }}
-                    ></i>
-                    <span>Undefined Total: </span>
-                    {undefinedCount}
-                  </h5>
-                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="px-5 mt-3">
-        <div className="d-flex justify-content-center">
-          <h3> Teachers List</h3>
-        </div>
-        <Link to="/dashboard/add_teacher" className="btn btn-success">
-          Add Teacher
-        </Link>
-        <div className="mt-3">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Image</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Department</th>
-                <th>Course</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {currentStudents.map((e) => (
-                <tr key={e.email}>
-                  <td>{e.name}</td>
-                  <td>
-                    <img
-                      src={`http://localhost:3000/Images/${e.image}`}
-                      className="student_image"
-                      alt=""
-                      style={{
-                        maxWidth: "50px",
-                        maxHeight: "40px",
-                        borderRadius: "50%",
-                      }}
-                    />
-                  </td>
-                  <td>{e.email}</td>
-                  <td>{e.address}</td>
-                  <td>{e.department}</td>
-                  <td>{e.course}</td>
-                  <td>
-                    <Link
-                      to={"/dashboard/edit_teacher/" + e.id}
-                      className="btn btn-info btn-sm me-2"
-                    >
-                      Edit
-                    </Link>
-                    <button
-                      className="btn btn-warning btn-sm"
-                      onClick={() => handleDelete(e.id)}
-                    >
-                      Delete
-                    </button>
-                  </td>
+        <div className="px-5 mt-3">
+          <div className="d-flex justify-content-center">
+            <h3> Teachers List</h3>
+          </div>
+          <Link to="/dashboard/add_teacher" className="btn btn-success">
+            Add Teacher
+          </Link>
+          <div className="mt-3">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Image</th>
+                  <th>Email</th>
+                  <th>Address</th>
+                  <th>Department</th>
+                  <th>Course ID</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-          {/* Pagination */}
-          <ul className="pagination justify-content-center">
-            {Array.from(
-              { length: Math.ceil(student.length / studentsPerPage) },
-              (_, index) => (
-                <li key={index} className="page-item">
-                  <button
-                    onClick={() => paginate(index + 1)}
-                    className="page-link"
-                  >
-                    {index + 1}
-                  </button>
-                </li>
-              )
-            )}
-          </ul>
+              </thead>
+              <tbody>
+                {currentStudents.map((e) => (
+                  <tr key={e.email}>
+                    <td>{e.name}</td>
+                    <td>
+                      <img
+                        src={`http://localhost:3000/Images/${e.image}`}
+                        className="student_image"
+                        alt=""
+                        style={{
+                          maxWidth: "50px",
+                          maxHeight: "40px",
+                          borderRadius: "50%",
+                        }}
+                      />
+                    </td>
+                    <td>{e.email}</td>
+                    <td>{e.address}</td>
+                    <td>{e.department}</td>
+                    <td>{e.course_id}</td>
+                    <td>
+                      <Link
+                        to={"/dashboard/edit_employee/" + e.id}
+                        className="btn btn-info btn-sm me-2"
+                      >
+                        Edit
+                      </Link>
+                      <button
+                        className="btn btn-warning btn-sm"
+                        onClick={() => handleDelete(e.id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {/* Pagination */}
+            <ul className="pagination justify-content-center">
+              {Array.from(
+                { length: Math.ceil(student.length / studentsPerPage) },
+                (_, index) => (
+                  <li key={index} className="page-item">
+                    <button
+                      onClick={() => paginate(index + 1)}
+                      className="page-link"
+                    >
+                      {index + 1}
+                    </button>
+                  </li>
+                )
+              )}
+            </ul>
+          </div>
         </div>
       </div>
     </div>

@@ -21,6 +21,7 @@ import Calendar from "./component/Calender.jsx";
 import EditCourse from "./component/EditCourse";
 import Admin from "./component/Admin.jsx";
 import AddTeacher from "./component/AddTeacher.jsx";
+import EditEmployee from "./component/EditEmployee.jsx";
 
 //import Scheduler from "./component/Scheduler.jsx";
 
@@ -48,6 +49,7 @@ function App() {
           <Route path="add_teacher" element={<AddTeacher />} />
           <Route path="edit_student/:id" element={<EditStudent />} />
           <Route path="edit_course/:id" element={<EditCourse />} />
+          <Route path="edit_employee/:id" element={<EditEmployee />} />
         </Route>
         <Route path="/student_detail/:id" element={<EmployeeDetail />} />
       </Routes>

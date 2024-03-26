@@ -35,8 +35,8 @@ const AddEmployee = () => {
     formData.append("name", employee.name);
     formData.append("email", employee.email);
     formData.append("password", employee.password);
-    formData.append("address", employee.address);
-    formData.append("age", employee.age);
+    formData.append("address", employee.department);
+    formData.append("age", employee.address);
     formData.append("image", employee.image);
     formData.append("course_id", employee.course_id);
 
@@ -100,13 +100,13 @@ const AddEmployee = () => {
             />
 
             <label htmlFor="inputage" className="form-label">
-              age
+              Department
             </label>
             <input
               type="text"
               className="form-control rounded-0"
-              id="inputage"
-              placeholder="Enter age"
+              id="inputdepartment"
+              placeholder="Enter department"
               autoComplete="off"
               onChange={(e) =>
                 setEmployee({ ...employee, age: e.target.value })

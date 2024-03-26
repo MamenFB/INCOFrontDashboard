@@ -8,8 +8,9 @@ const EditEmployee = () => {
   const [employee, setEmployee] = useState({
     name: "",
     email: "",
-    age: "",
+    department: "",
     address: "",
+    course: "",
     course_id: 0,
   });
   const [course, setcourse] = useState([]);
@@ -35,8 +36,8 @@ const EditEmployee = () => {
           ...employee,
           name: result.data.Result[0].name,
           email: result.data.Result[0].email,
+          department: result.data.Result[0].department,
           address: result.data.Result[0].address,
-          age: result.data.Result[0].age,
           course_id: result.data.Result[0].course_id,
         });
       })
@@ -55,7 +56,7 @@ const EditEmployee = () => {
         .then((result) => {
           if (result.data.Status) {
             toast.success("Employee  updated succesfully!");
-            setTimeout(() => navigate("/dashboard/employee"), 500);
+            setTimeout(() => navigate("/dashboard/admin"), 500);
           } else {
             alert(result.data.error);
           }
@@ -102,17 +103,17 @@ const EditEmployee = () => {
           </div>
           <div className="col-12">
             <label for="inputage" className="form-label">
-              Age
+              Department
             </label>
             <input
               className="form-control rounded-0"
               id="inputage"
               type="text"
-              placeholder="Enter age"
-              value={employee.age}
+              placeholder="Enter department"
+              value={employee.department}
               aria-autocomplete="off"
               onChange={(e) =>
-                setEmployee({ ...employee, age: e.target.value })
+                setEmployee({ ...employee, department: e.target.value })
               }
             />
           </div>
