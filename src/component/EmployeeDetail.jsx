@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Calendar from "./Calender.jsx";
 
 const EmployeeDetail = () => {
   const [employee, setEmployee] = useState({});
@@ -35,7 +36,10 @@ const EmployeeDetail = () => {
     // Perform save operation (e.g., update employee data on backend)
     // Update only the address field
     const updatedEmployee = { ...employee, address: editedAddress };
-    axios.put(`http://localhost:3000/employee/update_address/${id}`, { address: editedAddress })
+    axios
+      .put(`http://localhost:3000/employee/update_address/${id}`, {
+        address: editedAddress,
+      })
       .then((response) => {
         console.log("Employee address updated:", response.data);
       })
@@ -98,6 +102,7 @@ const EmployeeDetail = () => {
           <h3>Course: {employee.course}</h3>
         </div>
         <div>
+          {/* Allow only viewing, not editing */}
           {!isEditing && (
             <button
               className="btn btn-primary me-2"
@@ -110,9 +115,13 @@ const EmployeeDetail = () => {
             Logout
           </button>
         </div>
+        <div>
+          {/* Display calendar */}
+          <h2>View Your Calendar</h2>
+          <Calendar />
+        </div>
       </div>
     </div>
   );
 };
-
 export default EmployeeDetail;
